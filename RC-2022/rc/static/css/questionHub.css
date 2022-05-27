@@ -1,0 +1,212 @@
+@import url("https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap");
+/* body styling */
+body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #12141d;
+}
+body::-webkit-scrollbar {
+  width: 5px;
+  background-color: white;
+}
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(197, 197, 197);
+  border-radius: 10px;
+}
+body::-webkit-scrollbar-thumb {
+  background: rgb(83, 83, 83);
+  border-radius: 10px;
+}
+/* styling for the outermost div */
+.my_container {
+  width: 100vw;
+  position: relative;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+/*styling for the div containing the cards*/
+.card_container {
+  border: 2px solid;
+  border-color: transparent;
+  border-radius: 10px;
+  margin-top: 2vh;
+  padding: 0vh 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  min-height: 75vh;
+  text-align: center;
+}
+#my_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 7vh 10vw;
+}
+/*navbar*/
+.my-nav {
+  background-color: black;
+}
+.my-nav-brand {
+  color: #11cabe;
+}
+
+.nav-link {
+  color: #11cabe;
+}
+
+/*styling for footer text*/
+.footer-text {
+  color: #11cabe;
+}
+
+.my_card {
+  border: 2px solid;
+  border-color: #000000;
+  width: 18vw !important;
+  height: fit-content;
+  padding: 1vh;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px;
+  justify-content: center;
+  align-items: center;
+  background-color: #1e2029;
+  box-shadow: 4px 4px #000000;
+}
+.margin {
+  margin: 1vh 2vw;
+  text-align: center;
+  height: fit-content;
+  width: fit-content;
+  color: whitesmoke;
+  border-bottom-color: whitesmoke;
+  font-weight: 500;
+}
+.subdiv {
+  text-align: center;
+  width: inherit;
+  font-family: "Zen Kurenaido", sans-serif;
+  font-weight: 700;
+  color: whitesmoke;
+}
+.progress_div {
+  text-align: center;
+  height: 3.5vh;
+  width: 10vw;
+  margin: 2vh auto;
+}
+
+/*progress bar styling*/
+.pg-bar {
+  background-color: #00a884;
+}
+/*Attempt button styling*/
+.attempt-button {
+  background-color: #00a884;
+  border-color: #000000;
+  text-decoration: none;
+  width: 14vw;
+}
+
+.attempt-button:hover {
+  background-color: green;
+  color: white;
+}
+/* styling for footer */
+.myfooter {
+  position: absolute;
+  bottom: 0px;
+  background-color: #1E2029 !important;
+}
+/* Responsiveness styling */
+@media screen and (max-width: 1255px) {
+  .my_card{
+    width:20vw !important;
+  }
+  .margin{
+    margin:1vh 0.5vw;
+  }
+  .card_header{
+    padding:0.5rem 0rem;
+  }
+}
+@media screen and (max-width: 995px) {
+  #my_grid {
+    gap: 5vh 3vw;
+  }
+  .my_card{
+    width:23vw !important;
+  }
+  .myfooter {
+    position: relative;
+    bottom: 0px;
+    background-color: #1E2029 !important;
+  }
+}
+@media screen and (max-width: 840px) {
+  #my_grid {
+    gap: 5vh 3vw;
+  }
+  .margin {
+    margin: 2vh 2vw;
+    text-align: center;
+    height: fit-content;
+    width: inherit;
+  }
+  .card_container {
+    padding: 3vh 3vw;
+  }
+  .my_card {
+    border: 2 px solid rgb(146, 146, 146);
+    width: 25vw !important;
+    padding: 1vw;
+  }
+}
+@media screen and (max-width: 769px) {
+  #my_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5vh 8vw;
+  }
+  .my_card {
+    width: 35vw !important;
+  }
+  .card_container {
+    width: fit-content;
+  }
+}
+@media screen and (max-width: 576px) {
+  .my_card {
+    width: 35vw !important;
+  }
+  .progress_div {
+    text-align: center;
+    height: 2.5vh;
+    width: 25vw;
+    margin: 2vh auto;
+  }
+}
+@media screen and (max-width: 470px) {
+  .my_card {
+    width: 43vw !important;
+  }
+}
+@media screen and (max-width: 395px) {
+  #my_grid {
+    grid-template-columns: 1fr;
+    gap: 5vh 8vw;
+  }
+  .my_card {
+    width: 65vw !important;
+  }
+  .card_container {
+    width: 85vw;
+  }
+}
+@media screen and (max-height: 653px) {
+  .myfooter {
+    position: relative;
+    margin-top: 2vh;
+  }
+}

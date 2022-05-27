@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Login</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="loginPage.css">
+<style>
+  .pisblogo{
+      float: right;
+      height: 50px;
+      width: 150px;
+      margin-left: auto;
+      margin-right: 0px;
+  }
+
+  .rclogo{
+      height: 50px;
+      width: 75px;
+  }
+
+  .nav-link{
+      border: 1px;
+  }
+
+  .active{
+      /* text-decoration: underline; */
+      border-bottom: 2px #6cf9f0 solid;
+
+  }
+
+  .title{
+      margin-left: auto;
+      display: inline-block;
+      color: #6cf9f0;
+  }
+
+  .timer{
+      display: inline-block;
+      /* margin-left: auto; */
+      color: #6cf9f0;
+      text-decoration: none;
+      list-style-type: none;
+      margin-left: auto;
+      margin-top: 10px;
+  }
+
+  li {
+      /* margin-left: auto; */
+      display: inline-block;
+      font-size: 1em;
+      list-style-type: none;
+      padding: 0.5em;
+      text-transform: uppercase;
+  }
+
+  #countdown{
+      /* margin-left: auto; */
+      /* margin-right: 40px; */
+      /* display: inline-block; */
+      margin-left: 200px;
+      font-size: 20px;
+      /* margin-top: 10px; */
+  }
+
+  .navbar{
+  background-color: #03121d !important;
+  /* height: 70px; */
+  }
+  .navbar-1,.nav-link,.nav-item{
+      color: #6cf9f0;
+  }
+
+  .footer{
+  position: fixed;
+  height: 55px;
+  background-color: #03121d !important;
+  }
+
+  #footer{
+      background-color: #03121d !important;
+      color: whitesmoke;
+      
+  }
+
+  #home{
+      color: #6cf9f0;
+  }
+
+  #link{
+      color: #6cf9f0;
+  }
+
+  #brand{
+      color: #6cf9f0;
+  }
+
+
+
+
+
+
+  /* The container */
+  .container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default radio button */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Create a custom radio button */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the radio button is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the indicator (dot/circle) */
+  .container .checkmark:after {
+     top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+  }
+  #rad{
+    color: #6cf9f0;
+    font-size: medium;
+    margin: 5px;
+  }
+  </style>
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="height: 9vh;">
+        <div class="container-fluid" style="background-color: #03121d !important; z-index:9;">
+        <a class="navbar-brand navbar-1" href="#" id="brand"><img src="rclogo.png" class="rclogo" alt="RC"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex-grow-1">
+              <!-- <li class="nav-item">
+                  <a class="nav-link" href="instructionsPage.html" id="link">Instructions</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="questionHub.html" id="link">Question Hub</a>
+              </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="submissionPage.html" id="link">Submissions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="leaderBoard.html" id="link">Leaderboard</a>
+                </li> -->
+          
+          </ul>
+          
+          <div>
+            <!-- <div>
+                <div id="countdown">
+                  <ul class="timer">
+                    <li><span id="hours"></span></li>
+                    <li><span id="minutes"></span></li>
+                    <li><span id="seconds"></span></li>
+                  </ul>
+                </div>
+            </div> -->
+            <div class="pisblogo">
+                <img src="pisblogo.png" class="pisblogo container-fluid" alt="">
+            </div>
+        </div>
+        </div>
+    </nav>
+    </section>
+    <section>
+        <footer class="text-center fixed-bottom bg-light footer">
+            <div class="container-fluid">
+            <div class="footer-text pt-3 pb-4" id="footer">PISB <span>&copy</span></div>
+            </div>
+        </footer>
+    </section>
+    <!-- <div class="container-sm">
+         /*<div class="row align-items-start">
+          <div class="col-sm-6" id="col-1">
+            RC LOGO
+          </div>
+          
+          <div class="col-sm-6" id="col-3">
+            PISB LOGO
+          </div>
+        </div>*/ -->
+        <!-- <div class="row align-items-start">
+            <div class="col-sm" id="col-2">
+                RC ROUND 2
+              </div> 
+        <p id="col-2">RC ROUND 2</p>
+        </div>
+    </div> -->
+    
+<div class="login-form">
+  <p id="col-2">RC ROUND 2</p>
+  <br><br>
+    <form action={%url 'login'%} method="POST">
+		<div class="avatar">
+			<img src="code1.png" alt="">
+		</div>
+        <h2 class="text-center">LOGIN</h2>   
+        <div class="form-group">
+        	<input type="text" class="form-control" name="username" placeholder="Username" required="required">
+        </div>
+		<div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+        </div>        
+        
+        <!-- <input type="radio" id="radio_1" name="1" value="FE,SE">
+        <label class="radio-inline" for="radio_1">FE,SE</label>
+        <input  type="radio" id="radio_2" name="1" value="TE,BE">
+        <label class="radio-inline" for="radio_2">TE,BE</label> -->
+        <!-- <div class="row">
+            <div class="col">
+                <div>
+                    <input type="radio" id="radio" name="1" >
+                    <label for="radio" class="radio-label">Junior</label>
+                </div>
+            </div>
+            <div class="col">
+                <div>
+                    <input type="radio" id="radio" name="1" >
+                    <label for="radio" class="radio-label">Senior</label>
+                </div>
+            </div>
+           
+          </div> -->
+
+
+
+          <div class="row">
+            <div class="col">
+        <label class="container" id="rad">Junior
+          <input type="radio" checked="checked" name="radio">
+          <span class="checkmark"></span>
+        </label>
+        </div>
+        <div class="col">
+        <label class="container" id="rad">Senior
+          <input type="radio" name="radio">
+          <span class="checkmark"></span>
+
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" id="button" class="btn btn-primary btn-lg btn-block" href="instructionsPage.html">LOGIN</button>
+        </div>
+		
+    </form>
+
+    <footer class="text-center fixed-bottom bg-light footer">
+        <div class="container-fluid">
+          <div class="footer-text pt-3 pb-4" id="footer">PISB <span>&copy</span></div>
+        </div>
+      </footer>
+    
+</div>
+</body>
+</html>

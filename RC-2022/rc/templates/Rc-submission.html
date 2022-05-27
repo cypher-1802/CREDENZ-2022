@@ -1,0 +1,496 @@
+<!-- {% comment %} {% extends 'Rc-Home.html' %}
+{% block body %} {% endcomment %}
+{%if result %}
+    {{result}}
+{% else %}
+    {{result}}
+{% endif %}
+<p>
+
+    {{error}}
+
+</p>
+
+<br>
+<table>
+    		{% for test in testcase %}
+		<tr>
+			<th>Case {{forloop.counter}}</th>
+		</tr>
+
+		<tr>
+			<td>{{test}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+{% comment %} {%endblock%} {% endcomment %} -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="Your Name" content="Your page" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <link rel="stylesheet" href="{% static 'css/testcasesPage.css' %}">
+  <link rel="stylesheet" href="{% static 'css/instructions.css' %}" />
+</head>
+<style>
+  .pisblogo {
+    float: right;
+    height: 50px;
+    width: 150px;
+    /* margin-left: auto; */
+  }
+
+  .rclogo {
+    height: 50px;
+    width: 75px;
+  }
+
+  .ulist {
+    margin-right: 0;
+  }
+
+  .nav-link {
+    border: 1px;
+  }
+
+  .active {
+    /* text-decoration: underline; */
+    border-bottom: 2px whitesmoke solid;
+
+  }
+
+  .title {
+    margin-left: auto;
+    display: inline-block;
+    color: whitesmoke;
+    /* margin-right: 50px; */
+  }
+
+  #icon {
+    margin-left: 50px;
+  }
+
+  .timer {
+    display: inline-block;
+    /* margin-left: auto; */
+    color: whitesmoke;
+    text-decoration: none;
+    list-style-type: none;
+    margin-left: auto;
+  }
+
+  /* 
+    .timeritems{
+      height: 50px;
+    padding: 0 8px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    width: 145px;
+    } */
+
+  .timer_container {
+    margin-left: 17.5vh;
+  }
+
+  li {
+    /* margin-left: auto; */
+    display: inline-block;
+    font-size: 1em;
+    list-style-type: none;
+    /* padding: 0.5em; */
+    text-transform: uppercase;
+  }
+
+  #countdown {
+    /* margin-left: auto; */
+    /* margin-right: 40px; */
+    /* display: inline-block; */
+    margin-left: 5rem;
+    margin-right: 5rem;
+
+    font-size: 20px;
+    /* margin-top: 10px; */
+  }
+
+  .navbar {
+    background-color: #1E2029 !important;
+    height: 70px;
+  }
+
+  .navbar-1,
+  .nav-link,
+  .nav-item {
+    color: whitesmoke;
+  }
+
+
+  .footer {
+    position: fixed;
+    height: 60px;
+    background-color: #1E2029 !important;
+  }
+
+  #footer {
+    /* background-color: #03121d !important; */
+    background-color: #1E2029 !important;
+    color: whitesmoke;
+
+  }
+
+  #home {
+    color: whitesmoke;
+    margin-left: 50px;
+  }
+
+  #link {
+    color: whitesmoke;
+  }
+
+  #brand {
+    color: whitesmoke;
+  }
+
+  .modal-content {
+    background-color: #12141D;
+    color: whitesmoke;
+    box-shadow: 4px 4px 4px #000000;
+  }
+
+  .closeBtn {
+    color: whitesmoke !important;
+  }
+
+
+  .btn-close {
+    background: transparent url("") center/1em auto no-repeat;
+  }
+
+  .close {
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #ffffff;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    /* opacity: .2; */
+  }
+
+  #LogoutModalLabel {
+    text-align: center;
+    align-items: center;
+  }
+
+  .modal-header {
+    text-align: center;
+    border-bottom: 0px;
+    font-size: 1em;
+    background-color: #1E2029;
+  }
+
+  .modal-footer {
+    border-top: 0px;
+  }
+</style>
+
+<body>
+
+  <!-- Navbar goes here -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid p-0" style="height: 7vh;background-color: #1E2029 !important; z-index:9;">
+      <a class="navbar-brand navbar-1" href="#" id="brand"><img src="{% static 'img/rclogo.png' %}" class="rclogo"
+          alt="RC"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+
+      <div class="collapse justify-content-end navbar-collapse" id="navbarSupportedContent"
+        style="background-color: #1E2029;">
+        <form>
+          <ul class="navbar-nav mb-2 mb-lg-0 ms-auto ulist">
+            <li class="nav-item">
+              <a class="nav-link" href="{%url 'rc-home'%}" id="link" data-toggle="modal" data-target="#myModal"
+                >Instructions</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{%url 'rc-leaderboard'%}" id="link">Leaderboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{%url 'rc-contest'%}" id="link">Question Hub</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'rc-mysub' pk=1 %}" id="link">Submissions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{%url 'logout'%}"  id="link" data-bs-toggle="modal" data-bs-target="#LogoutModal">Logout</a>
+            </li>
+
+          </ul>
+        </form>
+
+        <div class="pisblogo">
+          <img src="{% static 'img/pisblogo.png' %}" class="pisblogo container-fluid" alt="">
+        </div>
+      </div>
+
+      <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            
+            
+
+         </div>-->
+    </div>
+  </nav>
+  <div class="wrapper p-0">
+    <div class="row w-100 p-0 m-auto d-flex">
+      <div class="col-md m-auto p-0 d-flex col-main" style="flex-flow: column; height: 85vh;">
+        <div class="row p-0 m-auto d-flex w-100 row-main" id="row-left" style="height: 42.5vh;">
+          <div class="container  card-header  p-0 my-auto d-flex"
+            style="width: 45%; height: 80%; justify-content: center;background-color: #1e2029;box-shadow: 4px 4px #000000; text-align: center; flex-direction: column; flex-flow: column;  font-weight: medium;">
+            Status
+            <div class="m-auto pb-3 d-flex" style="vertical-align: middle; font-size: 1.9em; color: whitesmoke;">
+              {%if result %}
+              {{result}}
+              {% else %}
+              {{result}}
+              {% endif %}
+            </div>
+          </div>
+          <div class="container card-header   p-0 my-auto d-flex"
+            style="width: 45%; height: 80%; justify-content: center;background-color: #1e2029;box-shadow: 4px 4px #000000; text-align: center; flex-flow: column; font-weight: medium;">
+            Score
+            <div class="m-auto pb-3" style="vertical-align: middle; font-size: 1.9em; color: whitesmoke;">
+              {{score}}
+            </div>
+          </div>
+        </div>
+        <div class="row p-0 m-auto d-flex w-100" style="height: 45vh;">
+          <div class="container card-header   p-0 mb-auto d-flex"
+            style="width: 95%; height: 78%; justify-content: center;box-shadow: 4px 4px #000000;background-color: #1e2029; flex-flow: column;flex-direction: column;">
+            <p style="text-decoration: none; text-align: center;height: auto; margin: 0; font-weight: medium;">Console
+            </p>
+            <div class="m-auto section w-100 h-100 console pt-2 px-2"
+              style="overflow-x:auto;text-align: left; overflow-y: scroll; font-family: 'Lucida Console', 'Courier New', 'monospace'; font-size: 0.8rem;">
+             <textarea
+              class="form-control text-white card-body"
+              rows="5"
+              id="comment"
+              name="text"
+              readonly style="height:100%;background-color:transparent;color:white;resize:none ;border:0px solid black;"  >{{error}}</textarea>
+            </div>
+          </div>
+          <a type="button"  class="btn btn-danger mx-auto mb-0 p-0" onclick="Previous()" style="width: 100px; height: 33px;">Retry</a>
+        </div>
+      </div>
+      <div class="col-md p-0 h-100 m-auto d-flex">
+        <div class="row p-0 d-flex  w-100 col-main" id="row-right" style="margin: auto;height: 85vh;">
+          <div class="container  p-0 m-auto d-flex" id="row-right"
+            style="width: 90%; height: 100%; flex-direction: column;">
+            <div class="row p-0 m-auto d-flex w-100" style="height: 90% !important;">
+              <div class="row p-0 border-darker m-auto d-flex w-100">
+                <div class="col flex-column m-auto d-flex p-0 border-darker" style="height: 24vh; margin: auto;">
+                  <div class="card card-left text-center m-auto d-flex p-0"
+                    style="width: 70%; height: 90%; background-color: #1e2029;">
+
+                    <div class="card-header p-1" style=" background-color: #1e2029;">Testcase 1</div>
+                    <div class="card-body flex-column w-100 d-flex m-auto flex-column p-0 ">
+                      <div class="rounded-circle mt-2 m-auto d-flex color-js card-circle" data-result="{{testcase.0}}"
+                        style="border-radius: 50%; border:4px solid #D6001C;width: 55px; height:55px; justify-content: center;">
+                        <div class="m-auto" style=" font-weight: bold;">1</div>
+                      </div>
+                      <div class="container-fluid out mb-2" style="font-size: 1.2em;">{{testcase.0}}</div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col flex-column m-auto d-flex p-0 border-darker" style="height: 24vh; margin: auto;">
+                  <div class="card card-left text-center m-auto d-flex p-0"
+                    style="width: 70%; height: 90%; background-color:#1e2029;">
+                    <div class="card-header p-1" style="font-size: 1.2em; background-color: #1e2029;">Testcase</div>
+                    <div class="card-body  flex-column w-100 d-flex m-auto p-0">
+                      <div class="rounded-circle mt-2 m-auto d-flex color-js card-circle" data-result="{{testcase.1}}"
+                        style="border-radius: 50%; border:4px solid #D6001C; width: 55px; height:55px; justify-content: center;">
+                        <div class="m-auto" style=" font-weight: bold;">2</div>
+                      </div>
+                      <div class="container-fluid out mb-2" style="font-size: 1.2em;">{{testcase.1}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row  p-0 border-darker m-auto d-flex w-100">
+                <div class="col flex-column m-auto d-flex p-0 border-darker" style="height: 24vh; margin: auto;">
+                  <div class="card card-left text-center m-auto d-flex p-0"
+                    style="width: 70%; height: 90%; background-color: #1e2029;">
+                    <div class="card-header p-1" style="font-size: 1.2em;background-color: #1e2029;">Testcase</div>
+                    <div class="card-body flex-column w-100 d-flex m-auto p-0">
+                      <div class="rounded-circle mt-2 m-auto d-flex color-js card-circle" data-result="{{testcase.2}}"
+                        style="border-radius: 50%; border:4px solid #D6001C; width: 55px; height:55px; justify-content: center;">
+                        <div class="m-auto" style=" font-weight: bold;">3</div>
+                      </div>
+                      <div class="container-fluid out mb-2" style="font-size: 1.2em;">{{testcase.2}}</div>
+                    </div>
+
+
+
+
+
+                  </div>
+                </div>
+                <div class="col flex-column m-auto d-flex p-0 border-darker" style="height: 24vh; margin: auto;">
+                  <div class="card card-left text-center m-auto d-flex p-0"
+                    style="width: 70%; height: 90%; background-color: #1e2029;">
+                    <div class="card-header p-1" style="font-size: 1.2em;background-color: #1e2029;">Testcase</div>
+                    <div class="card-body  flex-column w-100 d-flex m-auto p-0">
+                      <div class="rounded-circle mt-2 m-auto d-flex color-js card-circle" data-result="{{testcase.3}}"
+                        style="border-radius: 50%; border:4px solid #d6001c; width: 55px; height:55px; justify-content: center;">
+                        <div class="m-auto" style=" font-weight: bold;">4</div>
+                      </div>
+                      <div class="container-fluid out mb-2" style="font-size: 1.2em;">{{testcase.3}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row  p-0 border-darker m-auto d-flex w-100">
+                <div class="col flex-column tc-card m-auto d-flex p-0 border-darker"
+                  style="height: 24vh; margin: auto;">
+                  <div class="card card-left text-center m-auto d-flex p-0"
+                    style="width: 70%; height:90%; background-color: #1e2029;">
+                    <div class="card-header p-1" style="font-size: 1.2em;background-color: #1e2029;">Testcase</div>
+                    <div class="card-body  flex-column w-100 d-flex m-auto p-0">
+                      <div class="rounded-circle mt-2 m-auto d-flex color-js card-circle" data-result="{{testcase.4}}"
+                        style="border-radius: 50%; border:4px solid #d6001c; width: 55px; height:55px; justify-content: center;">
+                        <div class="m-auto" style=" font-weight: bold;">5</div>
+                      </div>
+                      <div class="container-fluid out mb-2" style="font-size: 1.2em;">{{testcase.4}}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col  flex-column tc-card d-flex p-0 border-darker" style="height: 24vh; margin: auto;">
+                  <div class="card card-left text-center m-auto d-flex p-0"
+                    style="width: 70%; height: 90%; background-color: #1e2029;">
+                    <div class="card-header p-1" style="font-size: 1.2em;background-color: #1e2029;">Testcase</div>
+                    <div class="card-body  flex-column d-flex w-100 m-auto p-0">
+                      <div class="rounded-circle mt-2 m-auto d-flex color-js card-circle" data-result="{{testcase.5}}"
+                        style="border-radius: 50%; border:4px solid #D6001C; width: 55px; height:55px; justify-content: center;">
+                        <div class="m-auto" style=" font-weight: bold;">6</div>
+                      </div>
+                      <div class="container-fluid out mb-2" style="font-size: 1.2em;">{{testcase.5}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer goes here -->
+    <footer class="text-center fixed-bottom bg-light foot-bottom"
+      style="height: 7vh;background-color: #1E2029 !important; color: whitesmoke !important;">
+      <div class="container-fluid">
+        <div class="footer-text pt-3 pb-4">PISB <span>&copy</span></div>
+      </div>
+    </footer>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="navbar.js">
+  
+</script>
+
+<div class="modal" id="myModal" style="backdrop-filter: blur(5px);" >
+    <!-- Modal body -->
+                       <div class="maindiv" style="height: 68vh ; margin-top: 20px; border-radius: 3%; ">
+                           <br />
+                           <!-- Here you write your code -->
+                           <button type="button" class="close" data-dismiss="modal" style="color: rgb(0, 0, 0);border: 1px solid white; padding: 4px;padding-left: 10px;padding-right: 10px;border-radius: 60%;">&times;</button>
+                           <h1 class="heading">Instructions</h1>
+           
+                           <div class="one">
+        <div class="num">1.</div>
+        <div class="item">
+         You can use C/C++/Python to submit the answer.
+        </div>
+      </div>
+      <div class="one">
+        <div class="num">2.</div>
+        <div class="item">
+          This round comprises of 6 questions.
+        </div>
+      </div>
+
+      <div class="one">
+        <div class="num">3.</div>
+        <div class="item">
+          There are two boxes, one where you can type the input which is run against the correct code and the output is displayed in the output box.
+        </div>
+      </div>
+      <div class="one">
+        <div class="num">4.</div>
+        <div class="item">
+          Notice the pattern of output by giving various inputs and write the code for the observed pattern
+        </div>
+      </div>
+
+<div class="one">
+        <div class="num">5.</div>
+        <div class="item">
+          There should not be any white spaces in the input box.
+        </div>
+      </div>
+<div class="one">
+        <div class="num">6.</div>
+        <div class="item">
+          Press runcode button to run the input.
+        </div>
+      </div>
+<div class="one">
+        <div class="num">7.</div>
+        <div class="item">
+         Click on the submit button to submit the code.
+        </div>
+      </div>
+                       </div>
+                       </div>
+
+<div class="modal fade" id="LogoutModal" tabindex="-1" aria-labelledby="LogoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title w-100" id="LogoutModalLabel">Alert!</h5>
+            {% comment %} <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> {% endcomment %}
+          </div>
+          <div class="modal-body text-center">
+            Are you sure you want to logout ?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-danger" href="{%url 'logout'%}">
+              <a href="{%url 'logout'%}" style="color:whitesmoke; text-decoration:none">Logout</a>
+            </button>
+          </div>
+      </div>
+    </div>
+  </div>
+	<script>
+        function Previous() {
+            window.history.back()
+        }
+   	 </script>
+</html>

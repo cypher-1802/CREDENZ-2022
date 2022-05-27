@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap");
+/* body styling */
+body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #12141d;
+}
+body::-webkit-scrollbar {
+  width: 5px;
+  background-color: white;
+}
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(197, 197, 197);
+  border-radius: 10px;
+}
+body::-webkit-scrollbar-thumb {
+  background: rgb(83, 83, 83);
+  border-radius: 10px;
+}
+/* outer container styling */
+.my_container {
+  width: 100vw;
+  position: relative;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  /* margin-top: 1vh; */
+  /* background-color: #112726; */
+  background-color: #12141d;
+}
+/* card container styling */
+.card_container {
+  border: 2px solid;
+  border-color: transparent;
+  border-radius: 10px;
+  margin: 0.5vh auto;
+  padding: 2vh 5vw;
+  display: flex;
+  justify-content: center;
+  height: auto;
+  min-height: 66.5vh;
+  text-align: center;
+}
+#my_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5vh 10vw;
+}
+/* card styling */
+.my_card {
+  width: 17vw !important;
+  height: fit-content;
+  padding: 0.5vh;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px;
+  justify-content: center;
+  align-items: center;
+  background-color: #1e2029;
+  border: 1px solid #000000 !important;
+  box-shadow: 4px 4px #000000;
+}
+/* .my_card:hover {
+  box-shadow: 2px 2px 10px;
+} */
+
+.my-nav {
+  background-color: black;
+}
+.margin {
+  margin: 1vh 2vw;
+  text-align: center;
+  height: fit-content;
+  width: 15vw;
+  color: #6cf9f0;
+  border-bottom: 1px solid whitesmoke;
+  color: whitesmoke;
+}
+/*navbar styling*/
+.nav-link {
+  color: #6cf9f0;
+}
+.navbar-brand {
+  color: #6cf9f0;
+}
+.subdiv {
+  text-align: center;
+  width: inherit;
+  font-family: "Zen Kurenaido", sans-serif;
+  font-weight: 700;
+  color: whitesmoke;
+}
+/*progress bar styling*/
+.pg-bar {
+  background-color: #00a884;
+}
+/* tab bar styling */
+.tab {
+  overflow: hidden;
+  border: 1px solid #000000;
+  background-color: transparent;
+  border-radius: 10px;
+  margin-top: 1vh;
+}
+/*buttons styling*/
+.my-button {
+  background-color: #00a884;
+  color: white;
+  border: 1px solid #000000;
+}
+
+.my-button:hover {
+  background-color: green;
+}
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  border-radius: 10px;
+  transition: 0.1s;
+  color: white;
+}
+.tab button:hover {
+  background-color: #ddd;
+}
+.tab button:focus {
+  background-color: rgb(55, 201, 55);
+}
+/* progress bar styling */
+.progress_div {
+  text-align: center;
+  height: 3.5vh;
+  width: 10vw;
+  margin: 2vh auto;
+}
+/* footer styling */
+#myfooterid {
+  position: absolute;
+  bottom: 0;
+  background-color: black;
+}
+.footer-text {
+  color: #6cf9f0;
+}
+/* responsiveness styling */
+@media screen and (max-width: 995px) {
+  #my_grid {
+    gap: 5vh 3vw;
+  }
+  #myfooterid {
+    position: relative !important;
+  }
+}
+@media screen and (max-width: 840px) {
+  #my_grid {
+    gap: 5vh 3vw;
+  }
+  .margin {
+    margin: 2vh 2vw;
+    text-align: center;
+    height: fit-content;
+    width: inherit;
+  }
+  .card_container {
+    padding: 3vh 3vw;
+  }
+  .my_card {
+    border: 2px solid rgb(146, 146, 146);
+    width: 25vw !important;
+    padding: 1vw;
+  }
+}
+@media screen and (max-width: 769px) {
+  #my_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5vh 8vw;
+  }
+  .my_card {
+    width: 30vw !important;
+  }
+  .card_container {
+    width: fit-content;
+  }
+}
+@media screen and (max-width: 576px) {
+  .my_card {
+    width: 35vw !important;
+  }
+  .tab {
+    margin-top: 8vh;
+  }
+  .w3-modal {
+    padding-top: 100px !important;
+  }
+}
+@media screen and (max-width: 400px) {
+  .my_card {
+    width: 40vw !important;
+  }
+  .tab button {
+    padding: 10px 10px;
+    transition: 0.1s;
+  }
+  .progress_div {
+    text-align: center;
+    height: 4vh;
+    width: 30vw;
+    margin: 2vh auto;
+  }
+}
+@media screen and (max-width: 324px) {
+  #my_grid {
+    grid-template-columns: 1fr;
+    gap: 5vh 3vw;
+  }
+  .my_card {
+    width: 60vw !important;
+  }
+  .card_container {
+    padding: 5vh 10vw;
+  }
+}
+@media screen and (max-width: 278px) {
+  .tab button {
+    padding: 5px 5px;
+    transition: 0.1s;
+  }
+}
+@media screen and (max-height: 653px) {
+  #myfooterid {
+    position: relative !important;
+    margin-top: 2vh;
+  }
+}
+
+/* modal css */
+.modal-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.modal-footer {
+  border-top: none;
+}
+/* modal css */
+
+.ace_hidpi .ace_text-layer,
+.ace_hidpi .ace_gutter-layer,
+.ace_hidpi .ace_content,
+.ace_hidpi .ace_gutter {
+  contain: inherit !important;
+  will-change: transform;
+}

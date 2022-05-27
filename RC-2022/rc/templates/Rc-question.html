@@ -1,0 +1,679 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <title>Coding Page</title>
+  <link rel="stylesheet" href="{% static 'lib/css/editor-styles.css' %}">
+  <link rel="stylesheet" href="{% static 'css/instructions.css' %}" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  {% comment %} Fonts {% endcomment %}
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+</head>
+
+<style>
+  .pisblogo {
+    float: right;
+    height: 50px;
+    width: 150px;
+    /* margin-left: auto; */
+  }
+
+  .rclogo {
+    height: 50px;
+    width: 75px;
+  }
+
+  .ulist {
+    margin-right: 0;
+  }
+
+  .nav-link {
+    border: 1px;
+  }
+
+  .active {
+    /* text-decoration: underline; */
+    border-bottom: 2px whitesmoke solid;
+
+  }
+
+  .title {
+    margin-left: auto;
+    display: inline-block;
+    color: whitesmoke;
+    /* margin-right: 50px; */
+  }
+
+  #icon {
+    margin-left: 50px;
+  }
+
+  .timer {
+    display: inline-block;
+    /* margin-left: auto; */
+    color: whitesmoke;
+    text-decoration: none;
+    list-style-type: none;
+    margin-left: auto;
+  }
+
+  /* 
+    .timeritems{
+      height: 50px;
+    padding: 0 8px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    width: 145px;
+    } */
+
+  .timer_container {
+    margin-left: 17.5vh;
+  }
+
+  li {
+    /* margin-left: auto; */
+    display: inline-block;
+    font-size: 1em;
+    list-style-type: none;
+    /* padding: 0.5em; */
+    text-transform: uppercase;
+  }
+
+  #countdown {
+    /* margin-left: auto; */
+    /* margin-right: 40px; */
+    /* display: inline-block; */
+    margin-left: 5rem;
+    margin-right: 5rem;
+
+    font-size: 20px;
+    /* margin-top: 10px; */
+  }
+
+  .navbar {
+    background-color: #1E2029 !important;
+    height: 70px;
+  }
+
+  .navbar-1,
+  .nav-link,
+  .nav-item {
+    color: whitesmoke;
+  }
+
+
+  .footer {
+    position: fixed;
+    height: 60px;
+    background-color: #1E2029 !important;
+  }
+
+  #footer {
+    /* background-color: #03121d !important; */
+    background-color: #1E2029 !important;
+    color: whitesmoke;
+
+  }
+
+  #home {
+    color: whitesmoke;
+    margin-left: 50px;
+  }
+
+  #link {
+    color: whitesmoke;
+  }
+
+  #brand {
+    color: whitesmoke;
+  }
+
+  .modal-content {
+    background-color: #12141D;
+    color: whitesmoke;
+    box-shadow: 4px 4px 4px #000000;
+  }
+
+  .closeBtn {
+    color: whitesmoke !important;
+  }
+
+
+  .btn-close {
+    background: transparent url("") center/1em auto no-repeat;
+  }
+
+  .close {
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #ffffff;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    /* opacity: .2; */
+  }
+
+  #LogoutModalLabel {
+    text-align: center;
+    align-items: center;
+  }
+
+  .modal-header {
+    text-align: center;
+    border-bottom: 0px;
+    font-size: 1em;
+    background-color: #1E2029;
+  }
+
+  .modal-footer {
+    border-top: 0px;
+  }
+</style>
+
+<body>
+  {% comment %} <form> {% endcomment %}
+    <section>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid" style="background-color: #1E2029 !important; z-index:9;">
+          <a class="navbar-brand navbar-1" href="#" id="brand"><img src="{% static 'img/rclogo.png' %}" class="rclogo"
+              alt="RC"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="timer_container">
+            <div class=" w-100 d-flex p-0 flex-grow-1" id="countdown">
+              <ul class="timer w-100 p-0 m-auto align">
+                <li><span id="hours" class="timeritems"></span> :</li>
+                <li><span id="minutes" class="timeritems"></span> :</li>
+                <li><span id="seconds" class="timeritems"></span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            {% comment %} <form> {% endcomment %}
+              <ul class="navbar-nav mb-2 mb-lg-0 ms-auto ulist">
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'rc-home'%}" id="link" data-toggle="modal" data-target="#myModal" >Instructions</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'rc-leaderboard'%}" id="link">Leaderboard</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'rc-contest'%}" id="link">Question Hub</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'rc-mysub' ques.id %}" id="link">Submissions</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'logout'%}" id="link" data-bs-toggle="modal"
+                    data-bs-target="#LogoutModal">Logout</a>
+                </li>
+
+              </ul>
+              {% comment %}
+            </form> {% endcomment %}
+
+            <div class="pisblogo">
+              <img src="{% static 'img/pisblogo.png' %}" class="pisblogo container-fluid" alt="">
+            </div>
+          </div>
+
+          <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              
+              
+
+           </div> -->
+        </div>
+      </nav>
+    </section>
+    <section>
+      <footer class="text-center fixed-bottom bg-light footer">
+        <div class="container-fluid">
+          <div class="footer-text pt-3 pb-4" id="footer">PISB <span>&copy</span></div>
+        </div>
+      </footer>
+    </section>
+
+
+
+
+    <script>
+      //Timer
+      (function () {
+        const second = 1000,
+          minute = second * 60,
+          hour = minute * 60,
+          day = hour * 24;
+
+
+        const countDown = new Date('{{time}}').getTime(),
+          x = setInterval(function () {
+
+            const now = new Date().getTime(),
+              distance = countDown - now;
+
+            //   document.getElementById("days").innerText = Math.floor(distance / (day)),
+            document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+              document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+              document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+
+            //do something later when date is reached
+            if (distance < 0) {
+              document.getElementById("hours").innerText = 0;
+              document.getElementById("minutes").innerText = 0;
+              document.getElementById("seconds").innerText = 0;
+              clearInterval(x);
+              location.href = "{%url 'logout'%}";
+            }
+            //seconds
+          }, 0)
+      }());
+    </script>
+    <!-- <script src={% static 'js/navbar.js' %}></script> -->
+
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6" id="col-1">
+          <div class="row">
+
+            <div class="col align-self-start">
+              <div class="d-flex">
+                <a class="btn btn-primary lower-buttons" style="background-color:#1E2029;color:whitesmoke" type="button"
+                  id="back" href="{%url 'rc-contest'%}">
+                  <i class="fas fa-arrow-left"></i>
+                </a>
+                <h4 class="text-center justify-content-center" id="qno">{{ques.title}} </h4>
+              </div>
+              <!-- <textarea name="" id="questions" cols="74" rows="9"></textarea> -->
+              <h6 style="color:whitesmoke" class="text-center">CONSTRAINTS</h6>
+              <textarea readonly name="" id="questions"
+                style="height: 28vh; width: 100%; background-color: #1E2029; border: 1px solid #180703; box-shadow: 4px 4px #000000;;color: whitesmoke; resize: none; margin-bottom:2vh">{{ques.body}}
+                      </textarea>
+            </div>
+          </div>
+          <textarea name="" id="aques" cols="30" rows="10" style="display:none">{{ques.id}}</textarea>
+          <form action="{%url 'rc-RC' ques.id%}" method='post' id="customcform">
+            {%csrf_token%}
+            <div class="row align-items-start to_flex">
+              <div class="col-sm-6">
+                <!-- <textarea name="" id="input" cols="32" rows="8"></textarea> -->
+                <h6 style="color:whitesmoke" class="text-center">INPUT</h6>
+                <textarea name="Rc_input" id="input"
+                  style="height: 31vh; width: 100%; background-color: #1E2029; border: 1px solid #180703;box-shadow: 4px 4px #000000;color: whitesmoke;resize: none; margin-top:0">{{input}}</textarea>
+              </div>
+              <div class="col-sm-6">
+                <!-- <textarea name="" id="output" cols="32" rows="8"></textarea> -->
+                <h6 style="color:whitesmoke" class="text-center">OUTPUT</h6>
+                <textarea readonly name="Rc_display" id="output"
+                  style="height: 31vh; width: 100%; background-color: #1E2029; border: 1px solid #180703;box-shadow: 4px 4px #000000;;color: whitesmoke;resize: none; margin-top:0">{{output}}</textarea>
+              </div>
+            </div>
+            <button name="cust" id="gorun" type="submit" style="display: none;">Run</button>
+          </form>
+        </div>
+
+
+        <div class="col-md-6" id="col-2" style="padding-right: 2vh; padding-left: 2vh;">
+          <form action="{% url 'rc-sub' ques.id %}" method='post'>
+            {%csrf_token%}
+            <div class="container">
+              <div class="row" id="upperBtns">
+                <div class="col upperbtnssss">
+                  <a onclick="darkmode()" class="modebtns" id="darkmodebtn">
+                    <i class="fas fa-moon"></i>
+                  </a>
+                  <a onclick="lightmode()" class="modebtns" id="lightmodebtn">
+                    <i class="fas fa-sun"></i>
+                  </a>
+                  <!-- <button onclick="darkmode()" class="modebtns" id="darkmodebtn">
+                    <i class="fas fa-moon"></i>
+                  </button>
+                  <button onclick="lightmode()" class="modebtns" id="lightmodebtn">
+                    <i class="fas fa-sun"></i>
+                  </button> -->
+                  <select class="selectpicker" data-live-search="true" class="dropdownmenu" name="language" id="mode"
+                    onchange="changeMode()">
+                    <option value="c" id="c" selected>C</option>
+                    <option value="cpp" id="cpp">C++</option>
+                    <option value="py" id="python2">Python</option>
+
+                    <!-- <option value="java" id="java">Java</option> -->
+                  </select>
+
+                  <!-- <select class="selectpicker" data-live-search="true" class="form-control dropdownmenu" name="Language" id="mode" onchange="changeMode()">
+                    <option value="c" id="c" selected>C</option>
+                    <option value="c++" id="c++">C++</option>
+                    <option value="python2" id="python2">Python2</option>
+                    <option value="python3" id="python3">Python3</option>
+                    <option value="java" id="java">Java</option>
+                  </select> -->
+
+                  <!-- <button type="button" class="btn btn-dark" onclick="lightmode()">Switch Mode</button>
+                  <button type="button" class="btn btn-dark" onclick="darkmode()">Switch Mode</button> -->
+                  <!-- <button onclick="darkmode()" class="modebtns" id="darkmodebtn">
+                    <i class="fas fa-moon"></i>
+                  </button>
+                  <button onclick="lightmode()" class="modebtns" id="lightmodebtn">
+                    <i class="fas fa-sun"></i>
+                  </button> -->
+                </div>
+                <div class="col dropdown upperbtnssss">
+                  <!-- <select class="selectpicker" data-live-search="true" class="form-control dropdownmenu" name="Language" id="mode" onchange="changeMode()">
+                    <option value="c" id="c" selected>C</option>
+                    <option value="c++" id="c++">C++</option>
+                    <option value="python2" id="python2">Python</option>
+                    
+                    <option value="java" id="java">Java</option>
+                  </select> -->
+                </div>
+                <div class="col upperbtnssss" id="score">
+                  Score : {{score}}
+                </div>
+              </div>
+            </div>
+            <textarea name="input" id="w3revi" cols="50" rows="4" style="display:none"></textarea>
+            <div class="editor" id="editor">
+              <div class="editor_wrapper">
+                <div class="editor_body">
+                  <div class="editor_code" id="editorCode">
+
+                  </div>
+                </div>
+                <div class="editor_footer">
+
+                  <div class="editor_footer_right">
+                    <div class="editor_console">
+                      <ul class="editor_console-logs"></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div>
+              <div class="d-flex justify-content-space-between BTN">
+                <div class="col btnsssss">
+                  <div class="fileUpload btn btn-primary lower-buttons" id="choose">
+                    <label class="upload">
+                      <input name='File' accept=".py,.cpp,.c,.java,.txt" id="inputFile" type="file" />
+                      Choose File
+                    </label>
+                  </div>
+                </div>
+                <div class="col btnsssss">
+                  <button type="button" class="btn btn-primary lower-buttons loadbuffer" id="load">Load Buffer</button>
+                </div>
+                <div class="col btnsssss">
+                  <a class="btn btn-primary lower-buttons" id="run">Run Code</a>
+                </div>
+                <div class="col btnsssss">
+                  <button type="submit" class="btn btn-primary lower-buttons" id="submit">Submit Code</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- </form> -->
+      </div>
+    </div>
+
+    <!-- <script src="src/theme-twilight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="src/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="coding.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="./ace-builds-master/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+  
+  <script src="https://kit.fontawesome.com/84ff0cdea4.js" crossorigin="anonymous"></script> -->
+    <div style="display:block;height:56px"></div>
+    <footer class="text-center fixed-bottom bg-light footer">
+      <div class="container-fluid">
+        <div class="footer-text pt-3 pb-4" id="footer">PISB <span>&copy</span></div>
+      </div>
+    </footer>
+    {% comment %} "{% static 'ace-builds-master/src-noconflict/ace.js' %}" {% endcomment %}
+    <script src="{% static 'ace-builds-master/src-noconflict/ace.js' %}" type="text/javascript"
+      charset="utf-8"></script>
+    <script src="{% static 'ace-builds-master/src-noconflict/ext-language_tools.js' %}"></script>
+
+    <script src="{% static 'lib/js/ace-editor/src-min/ace.js' %}"></script>
+    <script src="{% static 'lib/js/ace-editor/src-min/mode-c_cpp.js' %}"></script>
+    <script src="{% static 'lib/js/ace-editor/src-min/ext-language_tools.js' %}"></script>
+    <script src="{% static 'lib/js/editor.js' %}"></script>
+    <script src="{% static 'https://kit.fontawesome.com/84ff0cdea4.js' %}" crossorigin="anonymous"></script>
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"></script>
+
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+      <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      // window.onload = checkcc;
+      var aq = document.querySelector("#aques").textContent;
+      document.getElementById("lightmodebtn").addEventListener('load', checkcc());
+      // document.getElementById("lightmodebtn").addEventListener('load', checkcc());
+      $('#run').click(function (e) {
+        console.log('hey');
+
+        // ecxvalues();
+        // e.preventDefault();
+        // console.log($('#textformat').val());
+
+        var formdata = $('#customcform').serialize();
+        console.log(formdata);
+
+        $.ajax({
+          type: 'POST',
+          url: "{%url 'rc-RC' ques.id%}",
+          data: formdata,
+          success: function (response, res1) {
+            // console.log("bkc");
+            // console.log(response.output);
+
+            // console.log(response.opt);
+            // console.log(res1);
+            // console.log(res2);
+            $("#output").val(response.output);
+          }
+        })
+
+      })
+
+
+      function scode() {
+        ecxvalues();
+        let lang = document.getElementById("mode").value;
+        // your function code here
+        if (lang == "py") {
+          localStorage.setItem(`pyr${aq - 1}`, document.getElementById("w3revi").textContent);
+        }
+        else if (lang == "c") {
+          localStorage.setItem(`cr${aq - 1}`, document.getElementById("w3revi").textContent);
+        }
+        else {
+          localStorage.setItem(`cppr${aq - 1}`, document.getElementById("w3revi").textContent);
+        }
+        console.log('hello');
+        setTimeout(scode, 500);
+        console.log(localStorage.getItem(`pyr${aq - 1}`));
+        console.log(localStorage.getItem(`cr${aq - 1}`));
+        console.log(localStorage.getItem(`cppr${aq - 1}`));
+
+      }
+      scode();
+
+      function checkcc() {
+        let lang = document.getElementById("mode").value;
+        if (lang == "py") {
+          document.getElementById("w3revi").textContent = localStorage.getItem(`pyr${aq - 1}`);
+          codeEditor.setValue(document.getElementById("w3revi").textContent);
+        }
+        else if (lang == "c") {
+          document.getElementById("w3revi").textContent = localStorage.getItem(`cr${aq - 1}`);
+          codeEditor.setValue(document.getElementById("w3revi").textContent);
+        }
+        else {
+          document.getElementById("w3revi").textContent = localStorage.getItem(`cppr${aq - 1}`);
+          codeEditor.setValue(document.getElementById("w3revi").textContent);
+        }
+      }
+      $('.loadbuffer').click(function (e) {
+
+        // ecxvalues();
+        e.preventDefault();
+        $.ajax({
+          type: 'GET',
+          url: "{%url 'buffer' ques.id%}",
+          data: "",
+          success: function (response, res1) {
+            console.log("bkc");
+            if (response.lang === "py") {
+              const $select = document.querySelector('#mode');
+              $select.value = 'py';
+              document.getElementById("w3revi").textContent = response.key;
+              codeEditor.setValue(response.key);
+
+            }
+            else if (response.lang === "c") {
+              const $select = document.querySelector('#mode');
+              $select.value = 'c';
+              document.getElementById("w3revi").textContent = response.key;
+              codeEditor.setValue(response.key);
+            }
+            else if (response.lang === "cpp") {
+              const $select = document.querySelector('#mode');
+              $select.value = 'cpp';
+              document.getElementById("w3revi").textContent = response.key;
+              codeEditor.setValue(response.key);
+            }
+            console.log(response.key);
+            console.log(response.lang);
+            // console.log(res1);
+            // console.log(res2);
+            // $("#output").val(response.opt);
+          }
+        })
+      })
+
+
+    </script>
+
+<div class="modal" id="myModal" style="backdrop-filter: blur(5px);">
+  <!-- Modal body -->
+                     <div class="maindiv" style="height: 68vh ; margin-top: 20px; border-radius: 3%; ">
+                         <br />
+                         <!-- Here you write your code -->
+                         <button type="button" class="close" data-dismiss="modal" style="color: rgb(0, 0, 0);border: 1px solid white; padding: 4px;padding-left: 10px;padding-right: 10px;border-radius: 60%;">&times;</button>
+                         <h1 class="heading">Instructions</h1>
+         
+                         <div class="one">
+        <div class="num">1.</div>
+        <div class="item">
+         You can use C/C++/Python to submit the answer.
+        </div>
+      </div>
+      <div class="one">
+        <div class="num">2.</div>
+        <div class="item">
+          This round comprises of 6 questions.
+        </div>
+      </div>
+
+      <div class="one">
+        <div class="num">3.</div>
+        <div class="item">
+          There are two boxes, one where you can type the input which is run against the correct code and the output is displayed in the output box.
+        </div>
+      </div>
+      <div class="one">
+        <div class="num">4.</div>
+        <div class="item">
+          Notice the pattern of output by giving various inputs and write the code for the observed pattern
+        </div>
+      </div>
+
+<div class="one">
+        <div class="num">5.</div>
+        <div class="item">
+          There should not be any white spaces in the input box.
+        </div>
+      </div>
+<div class="one">
+        <div class="num">6.</div>
+        <div class="item">
+          Press runcode button to run the input.
+        </div>
+      </div>
+<div class="one">
+        <div class="num">7.</div>
+        <div class="item">
+         Click on the submit button to submit the code.
+        </div>
+      </div>
+                     </div>
+                     </div>
+
+    <div class="modal fade" id="LogoutModal" tabindex="-1" aria-labelledby="LogoutModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h5 class="modal-title w-100 text-center" id="LogoutModalLabel">Alert!</h5>
+            <!-- <button type="button" class="btn-close closeBtn" data-bs-dismiss="modal" aria-label="Close"></button> -->
+            <!-- <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button> -->
+          </div>
+          <div class="modal-body text-center">
+            Are you sure you want to logout ?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-danger" href="{%url 'logout'%}">
+              <a href="{%url 'logout'%}" style="color:whitesmoke; text-decoration:none">Logout</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+
+</html>

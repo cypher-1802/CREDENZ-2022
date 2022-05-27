@@ -1,0 +1,218 @@
+/*#10171d, #0A090A, #18191A, ~#03121d~,~#1a1d20~, #393E46*/
+/*#112726, #052C43,  */
+
+body {
+  /* 	
+		background-image: linear-gradient(to bottom right, black, gray);
+		 */
+  /* background-color: #101820FF; */
+  /* background-color: #1D2731; */
+  /* background-color: #1A2930; */
+  /* background-color: #00303F; ** */
+  /* background-color: #181515; */
+  background-color: #12141D;
+}
+/* @import url('https://fonts.googleapis.com/css?family=Lato'); */
+
+.form-control,
+.btn {
+  border-radius: 2px;
+}
+.login-form {
+  width: 350px;
+  margin: 0 auto;
+  padding: 20px 0 30px;
+
+  /* margin-bottom: 30px;		 */
+}
+.login-form form {
+  border-radius: 2px;
+  background-color: #1E2029;
+  box-shadow: 4px 4px 4px #000000;
+  font-size: 13px;
+  /* border: 0.5vh black solid; */
+  border-radius: 20px;
+  padding: 10px;
+  position: relative;
+  border: 0.2vh #180703 solid;
+  border-right: 0.5vh #180703 solid;
+  border-bottom: 0.5vh #180703 solid;
+}
+.login-form h2 {
+  font-size: 22px;
+  margin: 35px 0 25px;
+  color: whitesmoke;
+}
+
+input[type="text"],
+input[type="password"] {
+  background-color: #0a1218;
+}
+input[type="text"]:focus,
+input[type="password"]:focus {
+  background-color: #0a1218;
+  color: whitesmoke;
+}
+.login-form .avatar {
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: -50px;
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  z-index: 9;
+  background: whitesmoke;
+  border: 0.5vh #180703 solid;
+  padding: 15px;
+}
+.login-form .avatar img {
+  width: 100%;
+}
+.login-form input[type="checkbox"] {
+  color: whitesmoke;
+  position: relative;
+  top: 1px;
+}
+.login-form .btn,
+.login-form .btn:active {
+  font-size: 16px;
+  font-weight: bold;
+  background:  #00A884 !important;
+  border: 0.2vh #180703 solid;
+  margin-bottom: 20px;
+  color: whitesmoke;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+.login-form .btn:hover,
+.login-form .btn:focus {
+  /* background: #039af1 !important; */
+  color: whitesmoke;
+}
+.login-form a {
+  color: whitesmoke;
+  text-decoration: underline;
+}
+.login-form a:hover {
+  text-decoration: none;
+}
+.login-form form a {
+  color: whitesmoke;
+  text-decoration: none;
+}
+.login-form form a:hover {
+  text-decoration: underline;
+}
+.login-form .bottom-action {
+  font-size: 14px;
+}
+#radio_1 {
+  text-align: center;
+  align-items: center;
+}
+#radio_2 {
+  text-align: center;
+  align-items: center;
+}
+
+/* input[type=text],input[type=password]{
+		/* box-shadow: 2px 4px 4px #30c5c5; */
+/* } */
+
+#button {
+  /* box-shadow: 2px 4px 4px #30c5c5; */
+  background-color:#00A884 ;
+}
+h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+.container-2 {
+  border: 0.5vh 180703 solid;
+  text-align: right;
+}
+
+#col-1 {
+  border: 0.5vh 180703 solid;
+  text-align: left;
+  font-weight: bold;
+  font-size: 20px;
+}
+#col-2 {
+  /*  */
+  font-weight: bold;
+  font-size: 40px;
+  text-align: center;
+  margin-top: 1vh;
+  color: whitesmoke;
+}
+
+#col-3 {
+  border: 0.5vh 180703 solid;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: right;
+}
+.radio {
+  text-align: center;
+}
+
+.footer {
+  position: fixed;
+  height: 70px;
+  background-color: #1E2029 !important;
+}
+
+#footer {
+  background-color: #1E2029 !important;
+  color: #6cf9f0;
+}
+
+@media (max-width: 350px) {
+  #col-2 {
+    justify-content: center;
+    word-wrap: normal;
+  }
+
+  .login-form {
+    padding: 30px;
+    padding-bottom: 0px;
+  }
+}
+@media (max-width: 768px) {
+  .rclogo,
+  .pisblogo {
+    display: none !important;
+  }
+}
+.navbar {
+  background-color: #1E2029 !important;
+  /* height: 70px; */
+}
+.navbar-1,
+.nav-link,
+.nav-item {
+  color: whitesmoke;
+}
+/* .nav-link{
+		background-color: #000000;
+		color: #6cf9f0;
+	} */
+/* .nav-item{
+		color: #6cf9f0;
+		background-color: #0A090A;
+	}
+	.nav-1{
+		background-color: #0A090A;
+		color: #6cf9f0;
+	} */
+/* .navbar-umm{
+		background-color: #0d131a;
+		height: 60px;
+	}
+	.navbar-1{
+		background-color: #0d131a;
+		height: 60px;
+	} */

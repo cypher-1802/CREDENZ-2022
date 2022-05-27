@@ -1,0 +1,184 @@
+body{
+	padding: 0;
+	margin: 0 !important;
+	overflow-x: hidden;
+	background-color: #12141d !important;
+	color:whitesmoke !important;
+}
+.text-center{
+	background-color: #1e2029;
+	box-shadow:4px 4px #000000;
+	
+
+}
+.ulist{
+	margin-right: 0 !important;
+}
+li {
+	/* margin-left: auto; */
+	display: inline-block;
+	font-size: 1em;
+	list-style-type: none;
+	/* padding: 0.5em; */
+	text-transform: uppercase;
+}
+
+.card-header{
+	
+	font-size: 1.2em!important; 
+	background-color: #1e2029;
+	text-align: center;
+}
+
+.wrapper{
+	display:block;
+	width: 100%;
+	height: 80vh !important;
+}
+
+.pisblogo{
+	float: right;
+	height: 50px;
+	width: 140px;
+	justify-self:right;
+	display: flex;
+}
+
+.rclogo{
+	height: 50px;
+	width: 100px;
+}
+[data-result="Passed"]{
+	border:4px solid #32cd32 !important; 
+}
+
+.nav-link{
+	border: 1px;
+}
+.card-left{
+	font-size: 1em !important;
+}
+.title{
+	margin-left: auto;
+	display: inline-block;
+	color: #6cf9f0;
+}
+
+.timer{
+	display: inline-block;
+	/* margin-left: auto; */
+	color: #6cf9f0;
+	text-decoration: none;
+	list-style-type: none;
+	margin-left: auto;
+}
+
+li {
+	/* margin-left: auto; */
+	display: inline-block;
+	font-size: 1em;
+	list-style-type: none;
+	padding: 0.5em;
+	text-transform: uppercase;
+}
+
+#countdown{
+	/* margin-left: auto; */
+	/* margin-right: 40px; */
+	/* display: inline-block; */
+	margin-left: 200px;
+	font-size: 20px;
+	/* margin-top: 10px; */
+}
+
+.navbar{
+background-color: #1E2029 !important;
+/* height: 70px; */
+}
+.navbar-1,.nav-link,.nav-item{
+	color: #6cf9f0;
+}
+#home{
+	color: #6cf9f0;
+}
+
+#link{
+	color: #6cf9f0;
+}
+
+#brand{
+	color: #6cf9f0;
+}
+
+@media (min-width: 768px){
+	body{
+		overflow-y: hidden;
+	}
+}
+@media (max-width: 768px) {
+	#row-left{
+		height: 30vh !important;
+	}
+	.card-circle{
+		width: 50px !important;
+		height: 50px !important;
+	}
+	
+	.card-left{
+		width: 80% !important;
+	}
+	#row-right{
+		margin-bottom: 10vh!important;
+	}
+	
+}
+@media (min-width: 1100px){
+	.card-circle{
+		width: 60px !important;
+		height: 60px !important;
+	}
+}
+@media (max-width: 1300px){
+	.card-header{
+		font-size: 1.1em !important;
+	}
+	.card-circle{
+		font-size: 1em;
+	}
+	.out{
+		font-size: 1em !important;
+	}
+	.nav-top{
+		height: 10vh !important;
+	}
+	.foot-bottom{
+		height: 9vh !important;
+	}
+	.col-main{
+		height: 82vh !important;
+	}
+	.row-main{
+		height: 41vh !important;
+	}
+	
+}
+
+.section{
+	overflow-y: auto;
+  	scrollbar-width: thin;
+}
+.section::-webkit-scrollbar {
+	width: 12px;
+	background-color: #03121d;
+}
+  
+.section::-webkit-scrollbar-track {
+	border-radius: 10px;
+	background-color: #12141D;
+}
+  
+.section::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color: white;
+}
+
